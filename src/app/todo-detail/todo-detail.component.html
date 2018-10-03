@@ -1,0 +1,12 @@
+<div *ngIf="todo">
+  {{pageTitle}}
+  <li><a [routerLink]="['/todo', todo.id]">{{todo.task}}</a></li>
+
+  <h2 (click)="onClick()">{{todo.task | uppercase}} Details</h2>
+  <div><span>id: </span>{{todo.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="todo.task" placeholder="name"/>
+    </label>
+  </div>
+</div>

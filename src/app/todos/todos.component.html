@@ -1,0 +1,13 @@
+<h2>{{pageTitle}}</h2>
+<ul class="heroes">
+  <li *ngFor="let todo of todos" (click)="toUpdate(todo)">
+    {{todo.id}}
+    {{todo.task}}
+  </li>
+</ul>
+<li *ngIf="status">{{status.status}}</li>
+<div>
+  <app-todo-detail [todo]="selectedTodo" [todos] = todos (detailsClicked)="onDetailsClicked($event)"></app-todo-detail>
+</div>
+
+<li *ngIf='fin != 0'>{{fin}}</li>
