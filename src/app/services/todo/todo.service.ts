@@ -10,22 +10,22 @@ import { Todos } from '../../todos/mock-todos';
   providedIn: 'root'
 })
 export class TodoService {
-  private statusUrl = "http://localhost:3000/status"
+  private statusUrl = 'http://localhost:3000/status';
   constructor(private http: HttpClient) { }
   getTodos() {
-    let subject = new Subject()
-    setTimeout(()=>{subject.next(Todos); subject.complete();}, 1000)
+    const subject = new Subject();
+    setTimeout(() => { subject.next(Todos); subject.complete(); }, 1000);
     return Todos;
   }
   getUsers(): Observable<any> {
     return this.http.get(this.statusUrl).pipe(
-      tap(status => console.log('fetched status'+ JSON.stringify(status))),
+      tap(status => console.log('fetched status' + JSON.stringify(status))),
       catchError(this.handleError)
     );
   }
-  private handleError(err: HttpErrorResponse){
+  private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
-    errorMessage = `An error ${err.error.message}`
-    return throwError(errorMessage)
+    errorMessage = `An error ${err.error.message}`;
+    return throwError(errorMessage);
   }
 }

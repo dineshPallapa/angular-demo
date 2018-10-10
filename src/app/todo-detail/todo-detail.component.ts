@@ -11,7 +11,7 @@ import { TodoService } from '../services/todo/todo.service'
 })
 
 export class TodoDetailComponent implements OnInit {
-  pageTitle="data"
+  pageTitle = 'data';
   @Input() todo: Todo;
   @Input() todos: Todo[];
   @Output() detailsClicked: EventEmitter<Todo> = new EventEmitter<Todo>();
@@ -21,13 +21,13 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    let id = +this.route.snapshot.paramMap.get('id')
-    console.log(id)
-    this.pageTitle += `:${id} Todo`
-    this.todo = this.todos[0]
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.pageTitle += `:${id} Todo`;
+    this.todo = this.todos[0];
   }
 
-  onClick():void {
-    this.detailsClicked.emit(this.todo)
+  onClick(): void {
+    this.detailsClicked.emit(this.todo);
   }
 }

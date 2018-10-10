@@ -11,7 +11,7 @@ import { TodoService } from '../services/todo/todo.service';
 })
 
 export class TodosComponent implements OnInit {
-  pageTitle = "Task List"
+  pageTitle = 'Task List';
   status: any;
   fin: string;
   todos: Todo[];
@@ -25,12 +25,12 @@ export class TodosComponent implements OnInit {
     this.todoService.getUsers().subscribe(
       status => this.status = status
     )
-    this.status = this.status
+    this.status = this.status;
     this.store.pipe(select('todo')).subscribe(
       todo => {
         if(todo) {
-          this.fin = todo.showId
-          console.log(this.fin)
+          this.fin = todo.showId;
+          console.log(this.fin);
         }
       }
     );
@@ -45,6 +45,6 @@ export class TodosComponent implements OnInit {
   }
 
   onDetailsClicked(message: Todo) {
-    this.pageTitle = `Selected Task ${message.task}`
+    this.pageTitle = `Selected Task ${message.task}`;
   }
 }
